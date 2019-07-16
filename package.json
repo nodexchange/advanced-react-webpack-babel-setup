@@ -2,13 +2,13 @@
   "name": "advanced-react-webpack-babel-setup",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
     "build:analyze": "npm run build -- --env.addon=bundleanalyze --env.addon=bundlevisualizer",
     "dev": "concurrently \"npm:start\" \"npm:devserver\"",
-    "devserver": "nodemon server.js",
-    "server": "node server.js",
+    "devserver": "nodemon /src/services/events.js",
+    "server": "node /src/services/events.js",
     "start": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
@@ -27,6 +27,7 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^5.1.0",
     "eslint-loader": "^2.1.2",
+    "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
@@ -44,10 +45,12 @@
   },
   "dependencies": {
     "concurrently": "^4.1.1",
+    "history": "^4.9.0",
     "micro": "latest",
     "openssl-self-signed-certificate": "^1.1.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
   }
 }

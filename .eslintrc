@@ -6,12 +6,17 @@
     "node": true
   },
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["react", "babel", "prettier"],
   "rules": {
     "prettier/prettier": ["error"],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "import/no-extraneous-dependencies": 0,
     "react/jsx-filename-extension": 0,
     "comma-dangle": 0
+  },
+  "globals": {
+    "React": true
   },
   "overrides": [
     {

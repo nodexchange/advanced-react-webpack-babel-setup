@@ -29,6 +29,7 @@ Bachata Events Basic Setup. How to set it up yourself:
 * .editorconfig
 * concurrently
 * zeit/micro for backend data handling
+* openssl-self-signed-certificate
 
 ## Alternatives
 
@@ -41,4 +42,4 @@ Bachata Events Basic Setup. How to set it up yourself:
 - npm install
 - npm dev
 - visit `http://localhost:8080/`
-- Micro backend at  `http://localhost:3443/`
+- Micro backend at  `https://localhost:3443/`
