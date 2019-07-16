@@ -10,6 +10,15 @@
   "rules": {
     "prettier/prettier": ["error"],
     "import/no-extraneous-dependencies": 0,
-    "react/jsx-filename-extension": 0
-  }
+    "react/jsx-filename-extension": 0,
+    "comma-dangle": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js", "*.spec.js"],
+      "rules": {
+        "no-unused-expressions": 0
+      }
+    }
+  ]
 }
