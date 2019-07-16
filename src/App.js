@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import Routes from './router';
 
+import './style.css';
+
 const App = ({ title }) => <Routes title={title} />;
 
 App.propTypes = {
