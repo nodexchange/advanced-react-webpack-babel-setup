@@ -1,6 +1,8 @@
 /* eslint-disable react/prefer-stateless-function */
 /* global __EVENTS_API__ */
 import React from 'react';
+import './Timeline.css';
+
 import img from '../../img/logo-oup.png';
 import { TimelineItem } from '../index';
 
@@ -39,7 +41,7 @@ class Timeline extends React.Component {
     const timelineItems = [];
     if (data) {
       data.events.forEach(event => {
-        timelineItems.push(<TimelineItem key={event.ts} {...event} />);
+        timelineItems.push(<TimelineItem key={event.ts} {...event} hidden />);
       });
     }
     const { transform } = this.state;

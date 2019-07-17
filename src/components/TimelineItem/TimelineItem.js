@@ -1,10 +1,11 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
+import './TimelineItem.css';
 
-// import CdIconSvg from '../../img/cd-icon-location.svg';
+import CdIconSvg from '../../img/cd-icon-location.svg';
 
-const TimelineItem = ({ title, date, link, picture, sponsors }) => {
+const TimelineItem = ({ title, date, link, picture, sponsors, hidden }) => {
   const details = {};
   if (link) {
     details.link = (
@@ -23,15 +24,19 @@ const TimelineItem = ({ title, date, link, picture, sponsors }) => {
   if (sponsors) {
     details.sponsors = <img className="logo" alt="sponsor logo" src="./img/{name}.png" />;
   }
+  let hiddenClass = '';
+  if (hidden) {
+    hiddenClass = 'cd-is-hidden';
+  }
 
   return (
     <div>
       <div className="cd-timeline__block js-cd-block">
         <div className="ts {{{ ts }}}" />
-        <div className="cd-timeline__img cd-timeline__img--location js-cd-img">
-          {/* <span dangerouslySetInnerHTML={{ __html: CdIconSvg }} /> */}
+        <div className={`cd-timeline__img cd-timeline__img--location js-cd-img ${hiddenClass}`}>
+          <span dangerouslySetInnerHTML={{ __html: CdIconSvg }} />
         </div>
-        <div className="cd-timeline__content js-cd-content">
+        <div className={`cd-timeline__content js-cd-content ${hiddenClass}`}>
           <h2>{title}</h2>
           <p>{title}</p>
           {details.link}
@@ -43,8 +48,10 @@ const TimelineItem = ({ title, date, link, picture, sponsors }) => {
     </div>
   );
 };
+
 TimelineItem.defaultProps = {
   sponsors: '',
+  hidden: false,
 };
 TimelineItem.propTypes = {
   title: PropTypes.string.isRequired,
@@ -52,6 +59,7 @@ TimelineItem.propTypes = {
   link: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
   sponsors: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  hidden: PropTypes.bool,
 };
 
 export default TimelineItem;
