@@ -12,18 +12,15 @@
   }
 
   VerticalTimeline.prototype.hideBlocks = function() {
-    //hide timeline blocks which are outside the viewport
-    if (!'classList' in document.documentElement) {
+    // hide timeline blocks which are outside the viewport
+    if (!('classList' in document.documentElement)) {
       return;
     }
-    var self = this;
+    const self = this;
     console.log(this.blocks.length);
-    for (var i = 0; i < this.blocks.length; i++) {
+    for (let i = 0; i < this.blocks.length; i++) {
       (function(i) {
-        if (
-          self.blocks[i].getBoundingClientRect().top >
-          window.innerHeight * self.offset
-        ) {
+        if (self.blocks[i].getBoundingClientRect().top > window.innerHeight * self.offset) {
           self.images[i].classList.add('cd-is-hidden');
           self.contents[i].classList.add('cd-is-hidden');
         }
@@ -32,16 +29,15 @@
   };
 
   VerticalTimeline.prototype.showBlocks = function() {
-    if (!'classList' in document.documentElement) {
+    if (!('classList' in document.documentElement)) {
       return;
     }
-    var self = this;
-    for (var i = 0; i < this.blocks.length; i++) {
+    const self = this;
+    for (let i = 0; i < this.blocks.length; i++) {
       (function(i) {
         if (
           self.contents[i].classList.contains('cd-is-hidden') &&
-          self.blocks[i].getBoundingClientRect().top <=
-            window.innerHeight * self.offset
+          self.blocks[i].getBoundingClientRect().top <= window.innerHeight * self.offset
         ) {
           // add bounce-in animation
           self.images[i].classList.add('cd-timeline__img--bounce-in');
@@ -53,17 +49,17 @@
     }
   };
 
-  var verticalTimelines = document.getElementsByClassName('js-cd-timeline'),
-    verticalTimelinesArray = [],
-    scrolling = false;
+  const verticalTimelines = document.getElementsByClassName('js-cd-timeline');
+  const verticalTimelinesArray = [];
+  let scrolling = false;
   if (verticalTimelines.length > 0) {
-    for (var i = 0; i < verticalTimelines.length; i++) {
+    for (let i = 0; i < verticalTimelines.length; i++) {
       (function(i) {
         verticalTimelinesArray.push(new VerticalTimeline(verticalTimelines[i]));
       })(i);
     }
 
-    //show timeline blocks on scrolling
+    // show timeline blocks on scrolling
     window.addEventListener('scroll', function(event) {
       if (!scrolling) {
         scrolling = true;

@@ -3,13 +3,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import { About, Contact, Navigation, Timeline, Users } from './components';
+import { About, Contact, Header, Navigation, Timeline, Users } from './components';
 
 const routes = () => {
   const history = createBrowserHistory();
 
   return (
     <Router history={history}>
+      <Header />
       <Navigation />
       <div>
         <Route path="/" exact component={Timeline} />

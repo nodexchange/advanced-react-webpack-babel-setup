@@ -7,6 +7,7 @@
       "desc": "La gestion des tests avec le plugin Zephyr dans Jira, par Sandrine DOMAGALA (Altran)",
       "link": "http://www.telecom-valley.fr/12-mars-2019-communaute-test-qualite-logiciel/",
       "sponsors": [{ "name": "tv-ctql" }],
+      "picture": "event-number-1",
       "status":"pending verification"
     },
     {
@@ -16,6 +17,7 @@
       "desc": "Telecom Valley a décidé de lancer une nouvelle communauté dédiée à cette thématique afin de réunir et valoriser les initiatives de ses membres, soutenir les interactions entre eux et plus généralement renforcer le positionnement historique de Côte d’Azur sur l’ensemble des sujets liés à l’IA",
       "link": "http://www.telecom-valley.fr/18-mars-2019-communaute-data-ia/",
       "sponsors": [{ "name": "tv-cdi" }],
+      "picture": "event-number-2",
       "status":"approved"
     },
     {
@@ -25,6 +27,7 @@
       "desc": "Doit-on considérer l’Open Source comme une espèce en danger ?",
       "link": "http://www.telecom-valley.fr/21-mars-2019-communaute-open-source/",
       "sponsors": [{ "name": "tv-cos" }],
+      "picture": "event-number-3",
       "status":"approved"
     }
   ]

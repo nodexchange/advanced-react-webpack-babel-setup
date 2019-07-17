@@ -1,5 +1,6 @@
 const https = require('https');
 const { run, send, sendError /* , json */ } = require('micro');
+const microCors = require('micro-cors');
 const { key, cert, passphrase } = require('openssl-self-signed-certificate');
 
 const fs = require('fs');
@@ -11,7 +12,8 @@ const PORT = process.env.PORT || 3443;
 
 const options = { key, cert, passphrase };
 
-const microHttps = fn => https.createServer(options, (req, res) => run(req, res, fn));
+const cors = microCors({ allowMethods: ['GET', 'POST', 'PUT'] });
+const microHttps = fn => https.createServer(options, cors((req, res) => run(req, res, fn)));
 
 /**
  * handle POST requests
@@ -30,7 +32,7 @@ async function postHandler(request) {
  * handle GET requests
  */
 async function getHandler(request) {
-  const eventsJson = await readFile('/data/events.json');
+  const eventsJson = await readFile('./data/events.json');
   return JSON.parse(eventsJson);
 }
 
@@ -53,7 +55,6 @@ async function methodHandler(request, response) {
   }
   return 'error: unhandled';
 }
-
 const server = microHttps(async (request, response) => {
   try {
     send(response, 200, await methodHandler(request));

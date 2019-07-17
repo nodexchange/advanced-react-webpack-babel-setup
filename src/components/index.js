@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /**
  *  Point of contact for component modules
  *
@@ -9,4 +10,5 @@ export { default as Contact } from './Contact/Contact';
 export { default as Header } from './Header/Header';
 export { default as Navigation } from './Navigation/Navigation';
 export { default as Timeline } from './Timeline/Timeline';
+export { default as TimelineItem } from './TimelineItem/TimelineItem';
 export { default as Users } from './Users/Users';
