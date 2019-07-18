@@ -9,31 +9,15 @@ import { TimelineItem } from '../index';
 class Timeline extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       data: null,
     };
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
     fetch(__EVENTS_API__)
       .then(response => response.json())
       .then(data => this.setState({ data }));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll(event) {
-    const { scrollTop } = event.srcElement.body;
-    const itemTranslate = Math.min(0, scrollTop / 3 - 60);
-
-    this.setState({
-      transform: itemTranslate,
-    });
   }
 
   render() {
@@ -44,9 +28,6 @@ class Timeline extends React.Component {
         timelineItems.push(<TimelineItem key={event.ts} {...event} hidden />);
       });
     }
-    const { transform } = this.state;
-    console.log(transform);
-
     return (
       <section className="cd-timeline js-cd-timeline">
         <div className="cd-timeline__container">
