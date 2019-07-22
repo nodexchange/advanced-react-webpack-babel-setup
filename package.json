@@ -57,6 +57,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hook-inview": "^3.0.0",
+    "react-inlinesvg": "^1.1.1",
     "react-router-dom": "^5.0.1"
   }
 }

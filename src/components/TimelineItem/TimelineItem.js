@@ -18,7 +18,8 @@ const TimelineItem = ({ title, date, link, picture, sponsors }) => {
   });
   if (link) {
     details.link = (
-      <a target="_blank" href="{link}" className="cd-timeline__read-more">
+      // eslint-disable-next-line react/jsx-no-target-blank
+      <a target="_blank" href={link} className="cd-timeline__read-more">
         Détails
       </a>
     );
