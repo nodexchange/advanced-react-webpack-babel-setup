@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Datalist, Input, Label } from '../index';
 
 class NewEvent extends React.Component {
   constructor(props) {
@@ -31,13 +32,14 @@ class NewEvent extends React.Component {
 
         <Input hasLabel="true" htmlFor="passwordInput" label="Password input" required="true" type="password" />
 
+{/*
         <Select
           hasLabel="true"
           htmlFor="select"
           label="Select"
           options="one, two, three, option four, five"
           required="true"
-        />
+        /> */}
 
         <Datalist
           hasLabel="true"
@@ -47,13 +49,13 @@ class NewEvent extends React.Component {
           required="true"
         />
 
-        <Textarea hasLabel="true" htmlFor="textarea" label="Textarea" required="true" />
+        {/* <Textarea hasLabel="true" htmlFor="textarea" label="Textarea" required="true" />
 
         <Checkbox hasLabel="true" htmlFor="checkbox" label="Checkbox" required="true" />
 
         <Radio hasLabel="true" htmlFor="radioOne" label="Radio one" name="radios" required="true" />
 
-        <Radio hasLabel="true" htmlFor="radioTwo" label="Radio two" name="radios" required="true" />
+        <Radio hasLabel="true" htmlFor="radioTwo" label="Radio two" name="radios" required="true" /> */}
 
         <Button type="submit" value="submit" text="Send form" />
       </form>
