@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Label from '../index';
+import Label from '../Label/Label';
 
 const Datalist = ({ options, hasLabel, label, htmlFor, name, required }) => {
   const dataOptions = options.split(', ');

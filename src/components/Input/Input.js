@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import Label from '../index';
+import Label from '../Label/Label';
 
 const Input = ({ hasLabel, htmlFor, label, max, min, name, placeholder, step, type, required }) => (
   <fieldset>

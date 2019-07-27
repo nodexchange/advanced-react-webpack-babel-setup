@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Datalist, Input, Label } from '../index';
+import { Button, Datalist, Input, Select, Checkbox } from '../index';
+import './NewEvent.css';
 
 class NewEvent extends React.Component {
   constructor(props) {
@@ -32,14 +33,13 @@ class NewEvent extends React.Component {
 
         <Input hasLabel="true" htmlFor="passwordInput" label="Password input" required="true" type="password" />
 
-{/*
         <Select
           hasLabel="true"
           htmlFor="select"
           label="Select"
           options="one, two, three, option four, five"
           required="true"
-        /> */}
+        />
 
         <Datalist
           hasLabel="true"
@@ -48,10 +48,8 @@ class NewEvent extends React.Component {
           options="Chrome, Edge, Firefox, Internet Explorer, Opera, Safari, Vivaldi"
           required="true"
         />
-
-        {/* <Textarea hasLabel="true" htmlFor="textarea" label="Textarea" required="true" />
-
         <Checkbox hasLabel="true" htmlFor="checkbox" label="Checkbox" required="true" />
+        {/* <Textarea hasLabel="true" htmlFor="textarea" label="Textarea" required="true" />
 
         <Radio hasLabel="true" htmlFor="radioOne" label="Radio one" name="radios" required="true" />
 
