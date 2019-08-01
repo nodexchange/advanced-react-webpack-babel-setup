@@ -2,10 +2,10 @@
   "name": "events-retrieve",
   "version": "1.0.1",
   "description": "",
-  "main": "./events.js",
+  "main": "./src/events.js",
   "scripts": {
-    "dev": "nodemon events.js ",
-    "start": "node events.js",
+    "dev": "nodemon src/events.js -L",
+    "start": "node src/events.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [],

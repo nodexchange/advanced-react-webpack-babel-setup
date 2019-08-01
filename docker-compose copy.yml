@@ -1,0 +1,35 @@
+version: '3'
+services:
+
+  mongo:
+    image: mongo
+    volumes:
+      #- mongodata:/data/db/mongo
+      - ./data/db:/data/db/mongo
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+    volumes:
+      - ./data/db:/data/db/redis
+    ports:
+      - "6379:6379"
+
+  api:
+    env_file:
+      - ./events-retrieve/.env.development
+    build:
+      context: ./events-retrieve
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - ./events-retrieve:/usr/src/app
+    ports:
+      - "3443:3443"
+
+volumes:
+  mongodata:

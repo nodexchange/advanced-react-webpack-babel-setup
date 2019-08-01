@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    env_file:
+      - ./events-retrieve/.env.development
+    build:
+      context: ./events-retrieve
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./events-retrieve:/usr/src/app
+    ports:
+      - "3443:3443"
+
+volumes:
+  mongodata:

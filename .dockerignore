@@ -1,0 +1,31 @@
+.git
+.gitignore
+.gitlab-ci.yml
+sophia.yml
+README.md
+certs
+conf
+node_modules
+test.sh
+
+# Git
+.git
+.gitignore
+
+# Build step outputs
+build
+.happypack
+
+# Docker configuration
+Dockerfile
+Makefile
+docker-compose.yml
+
+# NPM dependencies
+node_modules
+
+# Other
+.editorconfig
+.eslintrc.js
+.ebextensions
+logging.conf

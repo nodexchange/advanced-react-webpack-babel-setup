@@ -1,0 +1,64 @@
+version: '3'
+services:
+
+  mongo:
+    image: mongo
+    volumes:
+      #- mongodata:/data/db/mongo
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+    volumes:
+      - mongodata:/data/db/redis
+    ports:
+      - "6379:6379"
+
+  api:
+    image: learninglocker/xapi-service:2.1.10
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/learninglocker_v2
+      - MONGO_DB=learninglocker_v2
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - mongo
+      - redis
+    volumes:
+      - "${DATA_LOCATION}/xapi-storage:/usr/src/app/storage"
+
+  ui:
+    image: michzimny/learninglocker2-app:${DOCKER_TAG}
+    environment:
+      - DOMAIN_NAME
+      - APP_SECRET
+      - SMTP_HOST
+      - SMTP_PORT
+      - SMTP_SECURED
+      - SMTP_USER
+      - SMTP_PASS
+    command: "./entrypoint-ui.sh"
+    restart: unless-stopped
+    depends_on:
+      - mongo
+      - redis
+      - api
+    volumes:
+      - "${DATA_LOCATION}/app-storage:/opt/learninglocker/storage"
+      - "${DATA_LOCATION}/ui-logs:/opt/learninglocker/logs"
+
+  nginx:
+    image: michzimny/learninglocker2-nginx:${DOCKER_TAG}
+    environment:
+      - DOMAIN_NAME
+    restart: unless-stopped
+    depends_on:
+      - ui
+      - xapi
+    ports:
+      - "443:443"
+      - "80:80"
+volumes:
+  mongodata:
