@@ -1,0 +1,22 @@
+{
+  "name": "events-retrieve",
+  "version": "1.0.1",
+  "description": "",
+  "main": "./events.js",
+  "scripts": {
+    "dev": "nodemon events.js ",
+    "start": "node events.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "Marcin Wojtala <marcin.wojtalae@oup.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "micro": "latest",
+    "micro-cors": "^0.1.1",
+    "openssl-self-signed-certificate": "^1.1.6"
+  }
+}
