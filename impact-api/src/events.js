@@ -34,7 +34,6 @@ async function postHandler(/* request */) {
  */
 async function getHandler(/* request */) {
   const eventsJson = await readFile('./data/events.json');
-  console.log('REQUEST!');
   return JSON.parse(eventsJson);
 }
 

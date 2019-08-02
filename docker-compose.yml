@@ -1,16 +1,27 @@
 version: '3'
 services:
-  api:
+  impact-api:
     env_file:
-      - ./events-retrieve/.env.development
+      - ./impact-api/.env.development
     build:
-      context: ./events-retrieve
+      context: ./impact-api
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     volumes:
-      - ./events-retrieve:/usr/src/app
+      - ./impact-api:/usr/src/app
     ports:
       - "3443:3443"
+  impact-ui:
+    env_file:
+      - ./impact-ui/.env.development
+    build:
+      context: ./impact-ui
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./impact-ui:/usr/src/app
+    ports:
+      - "3000:3000"
 
 volumes:
   mongodata:
