@@ -21,6 +21,6 @@
     "webpack-dev-server": "^2.5.0"
   },
   "scripts": {
-    "start": "node_modules\\.bin\\webpack-dev-server --config webpack.config --port 3000 --host=0.0.0.0"
+    "start": "webpack-dev-server --config webpack.config --port 3000 --host=0.0.0.0"
   }
 }

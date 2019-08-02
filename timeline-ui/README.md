@@ -1,3 +1,7 @@
+docker build -t webpack-app . --file Dockerfile.dev
+
+docker run --rm -it -v %cd%:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:8080:8080/tcp webpack-app
+
 # Bachata Events - basic project
 
 [![Build Status](https://travis-ci.org/rwieruch/advanced-react-webpack-babel-setup.svg?branch=master)](https://travis-ci.org/rwieruch/advanced-react-webpack-babel-setup) [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/rwieruch/advanced-react-webpack-babel-setup.svg)](https://greenkeeper.io/)

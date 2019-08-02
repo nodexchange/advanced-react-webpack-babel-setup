@@ -8,7 +8,7 @@ const Navigation = () => {
     <nav className="main-navigation">
       <ul>
         <li>
-          <Link to="/">Timeline</Link>
+          <Link to="/">Webpack Timeline</Link>
         </li>
         <li>
           <Link to="/users/">Users</Link>

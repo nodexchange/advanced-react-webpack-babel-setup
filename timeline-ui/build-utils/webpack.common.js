@@ -48,4 +48,8 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000,
+  },
 };

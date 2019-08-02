@@ -1,7 +1,7 @@
 
-docker build -t webpack-app . --file Dockerfile.dev
+docker build -t timeline-ui . --file Dockerfile.dev
 
-docker run --rm -it -v %cd%:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:8080:8080/tcp webpack-app
+docker run --rm -it -v %cd%:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0.1:8080:8080/tcp timeline-ui
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
