@@ -1,6 +1,9 @@
 # Bachata Events - basic project
 
 ## Installation
+### DEV ###
+local dependencies in the folders via the standard npm i
+
 - `docker-compose up` || `docker-compose up --build`
 - `docker-compose up -d` (detached)
 - `docker-compose ps`
