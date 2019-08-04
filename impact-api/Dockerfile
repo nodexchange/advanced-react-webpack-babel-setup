@@ -8,6 +8,12 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
+
+#RUN if [ "$NODE_ENV" = "development" ]; \
+#	then npm install;  \
+#	else npm install --only=production; \
+#	fi
+
 RUN npm install --quiet
 # If you are building your code for production
 # RUN npm ci --only=production

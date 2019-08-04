@@ -16,3 +16,8 @@ local dependencies in the folders via the standard npm i
 - npm dev
 - visit `http://localhost:8080/`
 - Micro backend at  `https://localhost:3443/`
+
+### Production ####
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+https://medium.com/vteam/configure-docker-project-for-different-environments-using-docker-compose-3-bfbef37d951c

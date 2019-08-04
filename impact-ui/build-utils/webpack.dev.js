@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const path = require('path');
+// const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      __EVENTS_API__: JSON.stringify('https://localhost:3443/'),
+      API_PORT: JSON.stringify('3443'),
     }),
     new webpack.HotModuleReplacementPlugin(),
     new Dotenv({

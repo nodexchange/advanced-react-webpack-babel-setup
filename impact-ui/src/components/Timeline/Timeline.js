@@ -1,5 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
-/* global __EVENTS_API__ */
+/* global API_PORT */
 import React from 'react';
 import './Timeline.css';
 
@@ -15,8 +15,19 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
-    fetch(__EVENTS_API__)
-      .then(response => response.json())
+    console.log(`[PORT] :  ${API_PORT}`);
+    // console.log(`[IP] :  ${host.docker.internal}`);
+    // const apiUrl = `http://host.docker.internal:${API_PORT}/`;
+    // const apiUrl = `http://127.0.0.1:${API_PORT}/`;
+    // const apiUrl = `http://127.0.0.1:${API_PORT}/`;
+    // const apiUrl = `http://172.17.0.1:${API_PORT}/`;
+    // const apiUrl = `http://172.26.0.1:${API_PORT}/`;
+    const apiUrl = `http://172.26.0.2:${API_PORT}/`;
+    fetch(apiUrl)
+      .then(response => {
+        console.log(`::: > ${response}`);
+        return response.json();
+      })
       .then(data => this.setState({ data }));
   }
 

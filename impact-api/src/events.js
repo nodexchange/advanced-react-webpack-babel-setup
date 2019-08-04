@@ -10,6 +10,7 @@ const readFile = util.promisify(fs.readFile);
 
 const PORT = process.env.PORT || 3443;
 const ENV = process.env.ENV || 'production';
+const IP = process.env.IP || 'test';
 
 const options = { key, cert, passphrase };
 
@@ -33,6 +34,7 @@ async function postHandler(/* request */) {
  * handle GET requests
  */
 async function getHandler(/* request */) {
+  console.log('REQUEST');
   const eventsJson = await readFile('./data/events.json');
   return JSON.parse(eventsJson);
 }
@@ -66,4 +68,4 @@ const server = microHttps(async (request, response) => {
 
 server.listen(PORT);
 // eslint-disable-next-line no-console
-console.log(`Listening on https://localhost:${PORT}  ~~ env: ${ENV}`);
+console.log(`Listening on https://${IP}:${PORT}  ~~ env: ${ENV}`);

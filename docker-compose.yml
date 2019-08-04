@@ -6,11 +6,11 @@ services:
     build:
       context: ./impact-api
       dockerfile: Dockerfile.dev
-    restart: unless-stopped
     volumes:
       - ./impact-api:/usr/src/app
-    ports:
-      - "3443:3443"
+    networks:
+      - impact-app-network
+
   impact-ui:
     env_file:
       - ./impact-ui/.env.development
@@ -18,10 +18,20 @@ services:
       context: ./impact-ui
       dockerfile: Dockerfile.dev
     restart: unless-stopped
+    environment:
+      HOST_IP: host.docker.internal
     volumes:
       - ./impact-ui:/usr/src/app
     ports:
       - "3000:3000"
+    links:
+      - impact-api
+    networks:
+      - impact-app-network
+
+networks:
+  impact-app-network:
+    driver: "bridge"
 
 volumes:
   mongodata:

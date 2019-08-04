@@ -1,0 +1,10 @@
+impact-api:
+  ports:
+    - "3443:3443":
+  environment:
+    DEVELOPMENT: 'true'
+    PRODUCTION: 'false'
+
+cache:
+  environment:
+    TTL: '500'
