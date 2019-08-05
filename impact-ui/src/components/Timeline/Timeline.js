@@ -17,12 +17,12 @@ class Timeline extends React.Component {
   componentDidMount() {
     console.log(`[PORT] :  ${API_PORT}`);
     // console.log(`[IP] :  ${host.docker.internal}`);
-    // const apiUrl = `http://host.docker.internal:${API_PORT}/`;
-    // const apiUrl = `http://127.0.0.1:${API_PORT}/`;
-    // const apiUrl = `http://127.0.0.1:${API_PORT}/`;
+    // const apiUrl = `https://host.docker.internal:${API_PORT}/`;
+    const apiUrl = `https://localhost:${API_PORT}/`;
+    // const apiUrl = `https://0.0.0.0:${API_PORT}/`;
     // const apiUrl = `http://172.17.0.1:${API_PORT}/`;
     // const apiUrl = `http://172.26.0.1:${API_PORT}/`;
-    const apiUrl = `http://172.26.0.2:${API_PORT}/`;
+    // const apiUrl = `http://172.26.0.2:${API_PORT}/`;
     fetch(apiUrl)
       .then(response => {
         console.log(`::: > ${response}`);

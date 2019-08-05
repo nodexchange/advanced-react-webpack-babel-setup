@@ -8,9 +8,9 @@ const util = require('util');
 
 const readFile = util.promisify(fs.readFile);
 
-const PORT = process.env.PORT || 3443;
+const API_IP = process.env.API_IP || '127.0.0.1';
+const API_PORT = process.env.API_PORT || 3003;
 const ENV = process.env.ENV || 'production';
-const IP = process.env.IP || 'test';
 
 const options = { key, cert, passphrase };
 
@@ -66,6 +66,7 @@ const server = microHttps(async (request, response) => {
   }
 });
 
-server.listen(PORT);
+// server.listen(PORT, HOST_IP);
+server.listen(API_PORT);
 // eslint-disable-next-line no-console
-console.log(`Listening on https://${IP}:${PORT}  ~~ env: ${ENV}`);
+console.log(`Listening on https://${API_IP}:${API_PORT}  ~~ env: ${ENV}`);

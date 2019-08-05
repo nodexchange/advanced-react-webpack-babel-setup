@@ -21,3 +21,9 @@ local dependencies in the folders via the standard npm i
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 https://medium.com/vteam/configure-docker-project-for-different-environments-using-docker-compose-3-bfbef37d951c
+
+
+
+### DOCKER ###
+- Clean everything unused
+docker system prune -a
