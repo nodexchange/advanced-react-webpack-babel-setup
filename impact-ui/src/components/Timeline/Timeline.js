@@ -1,5 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
-/* global API_PORT */
+/* global API_PORT, API_IP, NODE_ENV */
 import React from 'react';
 import './Timeline.css';
 
@@ -16,13 +16,9 @@ class Timeline extends React.Component {
 
   componentDidMount() {
     console.log(`[PORT] :  ${API_PORT}`);
-    // console.log(`[IP] :  ${host.docker.internal}`);
-    // const apiUrl = `https://host.docker.internal:${API_PORT}/`;
+    console.log(`[API_IP] :  ${API_IP}`);
+    console.log(`[NODE_ENV] :  ${NODE_ENV}`);
     const apiUrl = `https://localhost:${API_PORT}/`;
-    // const apiUrl = `https://0.0.0.0:${API_PORT}/`;
-    // const apiUrl = `http://172.17.0.1:${API_PORT}/`;
-    // const apiUrl = `http://172.26.0.1:${API_PORT}/`;
-    // const apiUrl = `http://172.26.0.2:${API_PORT}/`;
     fetch(apiUrl)
       .then(response => {
         console.log(`::: > ${response}`);
@@ -43,7 +39,7 @@ class Timeline extends React.Component {
       <section className="cd-timeline js-cd-timeline">
         <div className="cd-timeline__container">
           <div>
-            <h1>Timeline</h1>
+            <h1>{`Timeline  ${NODE_ENV}`}</h1>
             <img src={img} alt="webpack test" />
             {timelineItems}
           </div>

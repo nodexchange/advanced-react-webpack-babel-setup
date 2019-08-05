@@ -1,0 +1,8 @@
+{
+  "dev-compose-build-up": {
+    "script":"docker-compose-up.sh"
+  },
+  "dev-compose-build-up-detached": {
+    "script":"docker-compose-up-detached.sh"
+  }
+}

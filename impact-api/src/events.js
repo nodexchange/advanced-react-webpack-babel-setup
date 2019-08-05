@@ -10,7 +10,7 @@ const readFile = util.promisify(fs.readFile);
 
 const API_IP = process.env.API_IP || '127.0.0.1';
 const API_PORT = process.env.API_PORT || 3003;
-const ENV = process.env.ENV || 'production';
+const ENV = process.env.NODE_ENV || 'production';
 
 const options = { key, cert, passphrase };
 

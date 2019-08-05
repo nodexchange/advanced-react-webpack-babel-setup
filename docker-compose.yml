@@ -2,10 +2,8 @@ version: '3'
 services:
   impact-api:
     env_file:
-      - ./impact-api/.env.development
-    environment:
-      API_IP: ${API_IP}
-      API_PORT: ${API_PORT}
+      - ./.env.base.dev
+      - ./impact-api/.env.dev
     build:
       context: ./impact-api
       dockerfile: Dockerfile.dev
@@ -18,12 +16,7 @@ services:
 
   impact-ui:
     env_file:
-      - ./impact-ui/.env.development
-    environment:
-      CLIENT_IP: ${CLIENT_IP}
-      CLIENT_PORT: ${CLIENT_PORT}
-      API_IP: ${API_IP}
-      API_PORT: ${API_PORT}
+      - ./impact-ui/.env.dev
     build:
       context: ./impact-ui
       dockerfile: Dockerfile.dev
