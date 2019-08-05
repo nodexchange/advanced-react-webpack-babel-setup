@@ -5,13 +5,31 @@ services:
     env_file:
       - ./.env.base.prod
       - ./impact-api/.env
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./impact-api:/usr/src/app
     environment:
       PRODUCTION: 'true'
 
   impact-ui:
-    restart: unless-stopped
     env_file:
       - ./.env.base.prod
       - ./impact-ui/.env
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./impact-ui:/usr/src/app
     environment:
       PRODUCTION: 'true'
+
+  nginx:
+    image: nginx:1.13
+    command: [nginx-debug, '-g', 'daemon off;']
+    volumes:
+      - ./impact-ui/dist:/var/www
+      - ./config/basic-nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+    - 3005:80
+    depends_on:
+    - impact-ui

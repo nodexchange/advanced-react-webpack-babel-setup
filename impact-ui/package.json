@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
     "build:analyze": "npm run build -- --env.addon=bundleanalyze --env.addon=bundlevisualizer",
-    "start": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev",
     "dev:docker": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev --port 3000 --host=0.0.0.0",
+    "start:dev": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [],
