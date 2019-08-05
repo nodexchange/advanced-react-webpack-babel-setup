@@ -34,7 +34,6 @@ async function postHandler(/* request */) {
  * handle GET requests
  */
 async function getHandler(/* request */) {
-  console.log('REQUEST');
   const eventsJson = await readFile('./data/events.json');
   return JSON.parse(eventsJson);
 }
@@ -69,4 +68,4 @@ const server = microHttps(async (request, response) => {
 // server.listen(PORT, HOST_IP);
 server.listen(API_PORT);
 // eslint-disable-next-line no-console
-console.log(`Listening on https://${API_IP}:${API_PORT}  ~~ env: ${ENV}`);
+console.log(`Listening on https://${API_IP}:${API_PORT}  ~~ env: ${ENV} ¬¬ ${process.env.BASE_ENV}`);

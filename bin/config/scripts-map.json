@@ -1,8 +1,14 @@
 {
   "dev-compose-build-up": {
-    "script":"docker-compose-up.sh"
+    "script":"dev-compose-up.sh"
   },
   "dev-compose-build-up-detached": {
-    "script":"docker-compose-up-detached.sh"
+    "script":"dev-compose-up-detached.sh"
+  },
+  "prod-compose-up": {
+    "script":"production-up.sh"
+  },
+  "compose-down": {
+    "script":"compose-down.sh"
   }
 }

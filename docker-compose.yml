@@ -1,29 +1,18 @@
 version: '3'
 services:
   impact-api:
-    env_file:
-      - ./.env.base.dev
-      - ./impact-api/.env.dev
     build:
       context: ./impact-api
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./impact-api:/usr/src/app
     ports:
       - "3443:3443"
     networks:
       - impactnetwork
 
   impact-ui:
-    env_file:
-      - ./impact-ui/.env.dev
     build:
       context: ./impact-ui
-      dockerfile: Dockerfile.dev
     links:
       - impact-api
-    volumes:
-      - ./impact-ui:/usr/src/app
     ports:
       - "3000:3000"
     networks:

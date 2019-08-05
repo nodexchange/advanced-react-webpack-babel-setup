@@ -1,9 +1,0 @@
-impact-api:
-  restart: unless-stopped
-  environment:
-    PRODUCTION: 'true'
-
-
-cache:
-  environment:
-    TTL: '500'

@@ -26,7 +26,10 @@ const stream = process.stdin;
 list
   .option(' (DEV) Start Project', 'dev-compose-build-up')
   .option(' (DEV) Start Project (detached)', 'dev-compose-build-up-detached')
-  .option(' (DEV) Docker PRUNE', 'prune')
+  .option(' * PRODUCTION * - compose up', 'prod-compose-up')
+  .option(' DOCKER COMPOSE - DOWN', 'compose-down')
+  .option(' TODO - (prod)', 'prod-test')
+  .option(' TODO - Docker PRUNE', 'prune')
   .option(' Three  ')
   .list();
 
@@ -34,19 +37,8 @@ list.on('select', options => {
   const script = config[options[0].value].script || 'default';
   console.log(`=== > script to be executed: ${script}`);
   shell.cd('bin/scripts');
-  switch (options[0].value) {
-    case 'dev-compose-build-up':
-      // shell.exec(script);
-      break;
-    case 'dev-compose-build-up-detached':
-      // shell.exec('docker-compose-up.sh');
-      break;
-    case 'prune':
-      console.log('PRUNE TODO');
-      break;
-    default:
-      console.log('SOMETHING ELSE --- STILL A TODO');
-      break;
+  if (script !== 'default') {
+    shell.exec(script);
   }
   console.log(options);
   process.exit(0);

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  impact-api:
+    env_file:
+      - ./.env.base.dev
+      - ./impact-api/.env.dev
+    build:
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./impact-api:/usr/src/app
+    environment:
+      PRODUCTION: 'false'
+
+  impact-ui:
+    env_file:
+      - ./.env.base.dev
+      - ./impact-ui/.env.dev
+    build:
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./impact-ui:/usr/src/app
+    environment:
+      PRODUCTION: 'false'

@@ -14,7 +14,7 @@ COPY package*.json ./
 #	else npm install --only=production; \
 #	fi
 
-RUN npm install --quiet
+RUN npm install --quiet --only=production
 # If you are building your code for production
 # RUN npm ci --only=production
 
