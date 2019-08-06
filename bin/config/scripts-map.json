@@ -10,5 +10,8 @@
   },
   "compose-down": {
     "script":"compose-down.sh"
+  },
+  "docker-prune": {
+    "script":"docker-prune.sh"
   }
 }

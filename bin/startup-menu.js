@@ -29,7 +29,7 @@ list
   .option(' * PRODUCTION * - compose up', 'prod-compose-up')
   .option(' DOCKER COMPOSE - DOWN', 'compose-down')
   .option(' TODO - (prod)', 'prod-test')
-  .option(' TODO - Docker PRUNE', 'prune')
+  .option(' TODO - Docker PRUNE', 'docker-prune')
   .option(' Three  ')
   .list();
 

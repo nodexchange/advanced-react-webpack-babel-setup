@@ -1,5 +1,6 @@
 FROM mhart/alpine-node:10
 
+RUN npm install webpack -g
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -23,4 +24,7 @@ RUN npm install --quiet --only=production
 # Bundle app source
 # COPY . .
 
-CMD ["npm", "run", "build"]
+RUN ["npm", "run", "build"]
+# RUN ["npm", "prune", "--production"]
+
+CMD ["echo", "'<< STATIC WEBPACK served from /dist >>'"]

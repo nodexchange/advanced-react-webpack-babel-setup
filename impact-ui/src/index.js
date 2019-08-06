@@ -7,4 +7,8 @@ const title = 'TEST .STILL WORKS? with Webpack and Babel';
 
 ReactDOM.render(<App title={title} />, document.getElementById('app'));
 
-module.hot.accept();
+if (module.hot) {
+  if (module.hot.accept) {
+    module.hot.accept();
+  }
+}

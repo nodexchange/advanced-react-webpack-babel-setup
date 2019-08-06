@@ -1,6 +1,6 @@
 {
-  "name": "events-retrieve",
-  "version": "1.0.1",
+  "name": "impact-api",
+  "version": "0.0.2",
   "description": "",
   "main": "./src/events.js",
   "scripts": {
