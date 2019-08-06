@@ -24,7 +24,8 @@ RUN npm install --quiet --only=production
 # Bundle app source
 # COPY . .
 
-RUN ["npm", "run", "build"]
+#RUN ["npm", "run", "build"]
 # RUN ["npm", "prune", "--production"]
 
-CMD ["echo", "'<< STATIC WEBPACK served from /dist >>'"]
+#CMD ["echo", "'<< STATIC WEBPACK served from /dist >>'"]
+CMD ["npm", "run", "build"]
