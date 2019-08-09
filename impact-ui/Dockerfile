@@ -30,7 +30,7 @@ COPY package*.json ./
 #CMD ["echo", "'<< STATIC WEBPACK served from /dist >>'"]
 #CMD ["npm", "run", "build"]
 
-ARG API_URL="https://oupimpactdev-env.dzvmm2pjcu.eu-west-1.elasticbeanstalk.com"
+ARG API_URL="http://oupimpactdev-env.dzvmm2pjcu.eu-west-1.elasticbeanstalk.com/api/"
 ARG API_IP="IP ARG"
 ARG API_PORT=3443
 ARG BASE_ENV=env_test

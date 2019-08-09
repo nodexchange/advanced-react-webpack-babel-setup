@@ -19,7 +19,7 @@ docker run --rm -it -v %cd%:/usr/src/app -v /usr/src/app/node_modules -p 127.0.0
 ### AWS ECR ####
 docker build -t impact-api .
 
-docker tag impact-api:latest 396484764682.dkr.ecr.eu-west-1.amazonaws.com/impact-ui:latest
+docker tag impact-api:latest 396484764682.dkr.ecr.eu-west-1.amazonaws.com/impact-api:latest
 
 docker push 396484764682.dkr.ecr.eu-west-1.amazonaws.com/impact-api:latest
 

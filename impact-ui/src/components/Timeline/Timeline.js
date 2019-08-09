@@ -15,12 +15,12 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
-    const url = API_URL || 'https://localhost';
+    const url = API_URL || 'https://localhost:3443/';
     console.log(`[PORT] :  ${API_PORT}`);
     console.log(`[API_IP] :  ${API_IP}`);
     console.log(`[NODE_ENV] :  ${NODE_ENV}`);
     console.log(`[API_URL] :  ${API_URL}`);
-    const apiUrl = `${url}:${API_PORT}/`;
+    const apiUrl = `${url}`;
     fetch(apiUrl)
       .then(response => {
         console.log('::: ', response);
