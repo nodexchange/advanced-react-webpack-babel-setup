@@ -1,5 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
-/* global API_PORT, API_IP, NODE_ENV */
+/* global API_PORT, API_IP, API_URL, NODE_ENV */
 import React from 'react';
 import './Timeline.css';
 
@@ -15,13 +15,15 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
+    const url = API_URL || 'https://localhost';
     console.log(`[PORT] :  ${API_PORT}`);
     console.log(`[API_IP] :  ${API_IP}`);
     console.log(`[NODE_ENV] :  ${NODE_ENV}`);
-    const apiUrl = `https://localhost:${API_PORT}/`;
+    console.log(`[API_URL] :  ${API_URL}`);
+    const apiUrl = `${url}:${API_PORT}/`;
     fetch(apiUrl)
       .then(response => {
-        console.log(`::: > ${response}`);
+        console.log('::: ', response);
         return response.json();
       })
       .then(data => this.setState({ data }));

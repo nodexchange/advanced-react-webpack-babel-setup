@@ -1,38 +1,55 @@
-const https = require('https');
-const { run, send, sendError /* , json */ } = require('micro');
-const microCors = require('micro-cors');
-const { key, cert, passphrase } = require('openssl-self-signed-certificate');
+// const https = require('https');
+const { send /* , json */ } = require('micro');
+// const microCors = require('micro-cors');
+// const { key, cert, passphrase } = require('openssl-self-signed-certificate');
 
 const fs = require('fs');
 const util = require('util');
 
 const readFile = util.promisify(fs.readFile);
 
-const API_IP = process.env.API_IP || '127.0.0.1';
+// const API_IP = process.env.API_IP || '127.0.0.1';
 const API_PORT = process.env.API_PORT || 3003;
-const ENV = process.env.NODE_ENV || 'production';
+// const ENV = process.env.NODE_ENV || 'production';
 
-const options = { key, cert, passphrase };
+// const options = { key, cert, passphrase };
 
-const cors = microCors({ allowMethods: ['GET', 'POST', 'PUT'] });
-const microHttps = fn => https.createServer(options, cors((req, res) => run(req, res, fn)));
+// const cors = microCors({ allowMethods: ['GET', 'POST', 'PUT'] });
+// const microHttps = fn => https.createServer(options, cors((req, res) => run(req, res, fn)));
 
-/**
- * handle POST requests
- */
-async function postHandler(/* request */) {
-  // try {
-  //   const events = await json(eventsJson);
-  // } catch (e) {
-  //   console.log(e);
-  // }
-  const events = { status: 'DONE' };
-  return events;
-}
+const finalhandler = require('finalhandler');
+const http = require('http');
+const Router = require('router');
 
-/**
- * handle GET requests
- */
+const router = Router();
+router.get('/', async (request, res) => {
+  send(res, 200, await methodHandler(request));
+    // const eventsJson = await readFile('./data/events.json');
+    // return JSON.parse(eventsJson);
+});
+
+const server = http.createServer((req, res) => {
+  router(req, res, finalhandler(req, res));
+});
+
+server.listen(API_PORT);
+console.log('___ HERE ???');
+// /**
+//  * handle POST requests
+//  */
+// async function postHandler(/* request */) {
+//   // try {
+//   //   const events = await json(eventsJson);
+//   // } catch (e) {
+//   //   console.log(e);
+//   // }
+//   const events = { status: 'DONE' };
+//   return events;
+// }
+
+// /**
+//  * handle GET requests
+//  */
 async function getHandler(/* request */) {
   const eventsJson = await readFile('./data/events.json');
   return JSON.parse(eventsJson);
@@ -57,15 +74,15 @@ async function methodHandler(request, response) {
   }
   return 'error: unhandled';
 }
-const server = microHttps(async (request, response) => {
-  try {
-    send(response, 200, await methodHandler(request));
-  } catch (error) {
-    sendError(request, response, error);
-  }
-});
+// const server = microHttps(async (request, response) => {
+//   try {
+//     send(response, 200, await methodHandler(request));
+//   } catch (error) {
+//     sendError(request, response, error);
+//   }
+// });
 
-// server.listen(PORT, HOST_IP);
-server.listen(API_PORT);
-// eslint-disable-next-line no-console
-console.log(`Listening on https://${API_IP}:${API_PORT}  ~~ env: ${ENV} ¬¬ ${process.env.BASE_ENV}`);
+// // server.listen(PORT, HOST_IP);
+// server.listen(API_PORT);
+// // eslint-disable-next-line no-console
+// console.log(`Listening on https://${API_IP}:${API_PORT}  ~~ env: ${ENV} ¬¬ ${process.env.BASE_ENV}`);
