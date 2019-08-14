@@ -20,14 +20,13 @@ const printData = () => {
   return `Final Callback`;
 };
 
-const listItems = req => {
+const listItems = async (req, res) => {
   // List
+  const items = {};
   db.connect(dbUrl)
-    .then(printData)
-    .then(() => {
-      console.log('resolved');
-    })
-    .then(db.disconnect());
+    .then(await List.exec({}, items))
+    .then(db.disconnect())
+    .then(send(res, 200, items));
 };
 
 const createItem = async (req, res) => {
@@ -51,7 +50,7 @@ const notFound = (req, res) => {
   send(res, 404, 'Not found route');
 };
 
-const list = async (req, res) => send(res, 200, await Promise.resolve(listItems(req)));
+const list = async (req, res) => listItems(req, res);
 const find = async (req, res) => send(res, 200, await Promise.resolve(printUser(req)));
 const update = async (req, res) => send(res, 200, await Promise.resolve(printUser(req)));
 const create = async (req, res) => createItem(req, res);
