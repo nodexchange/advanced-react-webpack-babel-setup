@@ -3,33 +3,40 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const EventsSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: 'Please fill Alarm name',
     trim: true,
   },
-  time: {
+  ts: {
     type: String,
   },
-  type: {
+  date: {
     type: String,
   },
-  status: {
+  desc: {
     type: String,
   },
-  tag: {
+  link: {
     type: String,
   },
-  handleTime: {
-    type: String,
+  sponsors: {
+    type: Array,
   },
-  handler: {
+  picture: {
     type: String,
     default: 'SCM',
   },
-  description: {
+  status: {
     type: String,
     default: 'SystemLog',
+  },
+  price: {
+    type: Number,
+  },
+  currency: {
+    type: String,
+    default: '£',
   },
 });
 
