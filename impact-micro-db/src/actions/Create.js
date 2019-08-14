@@ -1,6 +1,6 @@
 const Events = require('../model/Events');
 
-exports.create = async item => {
+exports.exec = async item => {
   const event = new Events(item);
   await event.save();
 };

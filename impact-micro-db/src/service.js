@@ -4,8 +4,7 @@ const { send } = require('micro');
 const { router, get, post } = require('microrouter');
 
 const db = require('./DatabaseConnect');
-const ListActions = require('./actions/List');
-const CreateActions = require('./actions/Create');
+const { Create, List } = require('./actions');
 
 const user = process.env.DB_USERNAME;
 const password = encodeURIComponent(process.env.DB_PASSWORD);
@@ -22,6 +21,7 @@ const printData = () => {
 };
 
 const listItems = req => {
+  // List
   db.connect(dbUrl)
     .then(printData)
     .then(() => {
@@ -42,7 +42,7 @@ const createItem = async (req, res) => {
     status: 'pending verification',
   };
   db.connect(dbUrl)
-    .then(await CreateActions.create(item))
+    .then(await Create.exec(item))
     .then(db.disconnect())
     .then(send(res, 200, 'OK'));
 };
