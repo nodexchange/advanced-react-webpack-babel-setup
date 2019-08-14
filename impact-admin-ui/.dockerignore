@@ -1,0 +1,23 @@
+.git
+.gitignore
+.gitlab-ci.yml
+README.md
+certs
+conf
+node_modules
+test.sh
+
+# Git
+.git
+.gitignore
+
+# Docker configuration
+Dockerfile
+
+# NPM dependencies
+node_modules
+
+# Other
+.editorconfig
+.eslintrc.js
+.ebextensions
